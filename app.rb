@@ -32,11 +32,19 @@ get("/delete/:id") do
 end
 
 get("/bands") do
+  @venues = Venue.all()
   erb(:add_band)
 end
 
 post("/bands") do
-  name = params.fetch("name")
-  Band.create({:name => name})
+  band_name = params.fetch("band_name")
+  venue_ids = params.fetch("venue_ids")
+  @band = Band.create({:name => band_name, :venue_ids => venue_ids})
   redirect("/")
+end
+
+post("/venues") do
+  venue_name = params.fetch("venue_name")
+  Venue.create({:name => venue_name})
+  redirect("/bands")
 end

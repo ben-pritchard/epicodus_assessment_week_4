@@ -1,10 +1,33 @@
 <h1>Add a band to Band Land:</h1>
 
 <form action="/bands" method="post">
-  <label for="name">Band Name</label>
-  <input id="name" name="name" class="form-control" type="text">
+  <label for="band_name">Band Name</label>
+  <input id="band_name" name="band_name" class="form-control" type="text">
+
+  <h5>Select all of the venues they have played at:</h5>
+
+  <% @venues.each() do |venue| %>
+    <div class = "checkbox">
+      <label for="venue_ids[]">
+        <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>"><%= venue.name() %>
+      </label>
+    </div>
+  <% end %>
 
   <button type="submit" class="btn">Submit</button>
 </form>
 
-<button class = "btn btn-info"><a href="/">Back to Main Page</a></button>
+<h5>Or do you need to add a venue?</h5>
+
+<form action="/venues" method="post">
+  <label for="venue_name">Venue name:</label>
+  <input id="venue_name" name="venue_name" class="form-control" type="text">
+
+  <button type="submit" class="btn">Add Venue</button>
+</form>
+
+
+
+<form action="/">
+  <button type="submit" class="btn btn-primary">Back to Band Land</button>
+</form>

@@ -13,12 +13,12 @@
       </li>
     <% end %>
   </ul>
+  <form action="/bands">
+    <button type="submit" class="btn btn-primary">Add another band to your land!</button>
+  </form>
 <% else %>
   <h4>Oops, there are no bands in your land right now.</h4>
+  <form action="/bands">
+    <button type="submit" class="btn btn-primary">Add a band to your land!</button>
+  </form>
 <% end %>
-
-<h4>Add a band to your land:</h4>
-
-<form action="/bands">
-  <button type="submit" class="btn">Add a band to Band Land!</button>
-</form>

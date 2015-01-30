@@ -4,4 +4,16 @@
 
 <h3>Venues they've played at:</h3>
 
-<button class = "btn btn-info"><a href="/">Back to Main Page</a></button>
+<% if @band.venues().any? %>
+  <ul>
+    <% @band.venues().each() do |venue_id| %>
+      <%= Venue.find(venue_id).name() %>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>No venues have been entered yet.</h4>
+<% end %>
+
+<form action="/">
+  <button type="submit" class="btn btn-primary">Back to Band Land</button>
+</form>
