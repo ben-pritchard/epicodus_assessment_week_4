@@ -5,18 +5,20 @@
 <% if @bands.any?() %>
   <ul>
     <% @bands.each() do |band| %>
-      <li><%= band.name() %></li>
+      <li>
+        <%= band.name() %>
+        <a href="/bands/<%= band.id() %>">View</a> |
+        <a href="/edit/<%= band.id() %>">Edit</a> |
+        <a href="/delete/<%= band.id() %>">Delete</a>
+      </li>
     <% end %>
   </ul>
 <% else %>
   <h4>Oops, there are no bands in your land right now.</h4>
 <% end %>
 
-<h4>Add another band to your land:</h4>
+<h4>Add a band to your land:</h4>
 
-<form action="/bands" method="post">
-  <label for="name">Band Name:</label>
-  <input id="name" name="name" class="form-control" type="text">
-
-  <button type="submit" class="btn">Add them to Band Land!</button>
+<form action="/bands">
+  <button type="submit" class="btn">Add a band to Band Land!</button>
 </form>
