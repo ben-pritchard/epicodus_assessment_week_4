@@ -1,0 +1,11 @@
+<h3>Well well, looks like you forgot something</h3>
+
+<ul>
+  <% @venue.errors().full_messages().each() do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+
+<form action="/bands">
+  <button type="submit" class="btn btn-primary">Go back and try again more diligently</button>
+</form>

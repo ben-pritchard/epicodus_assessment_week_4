@@ -39,12 +39,20 @@ end
 post("/bands") do
   band_name = params.fetch("band_name")
   venue_ids = params.fetch("venue_ids")
-  @band = Band.create({:name => band_name, :venue_ids => venue_ids})
-  redirect("/")
+  @band = Band.new({:name => band_name, :venue_ids => venue_ids})
+  if @band.save()
+    redirect("/")
+  else
+    erb(:error_band)
+  end
 end
 
 post("/venues") do
   venue_name = params.fetch("venue_name")
-  Venue.create({:name => venue_name})
-  redirect("/bands")
+  @venue = Venue.new({:name => venue_name})
+  if @venue.save()
+    redirect("/bands")
+  else
+    erb(:error_venue)
+  end
 end
