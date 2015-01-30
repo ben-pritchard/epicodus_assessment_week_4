@@ -1,0 +1,10 @@
+body {
+  background-image: url("/../images/concert.jpg");
+}
+
+.container {
+  background-color: white;
+  opacity: 0.5;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
