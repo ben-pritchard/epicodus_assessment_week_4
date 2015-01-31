@@ -25,7 +25,7 @@ patch("/update") do
   redirect("/")
 end
 
-get("/delete/:id") do
+delete("/delete/:id") do
   id = params.fetch("id").to_i()
   Band.find(id).destroy()
   redirect("/")

@@ -6,10 +6,15 @@
   <ul>
     <% @bands.each() do |band| %>
       <li>
-        <%= band.name() %>
-        <a href="/bands/<%= band.id() %>">View</a> |
-        <a href="/edit/<%= band.id() %>">Edit</a> |
-        <a href="/delete/<%= band.id() %>">Delete</a>
+        <h4><%= band.name() %></h4>
+        <div class="button-container">
+          <a href="/bands/<%= band.id() %>" class="btn btn-xs btn-success">View</a> |
+          <a href="/edit/<%= band.id() %>" class="btn btn-xs btn-warning">Edit</a> |
+          <form action="/delete/<%= band.id() %>" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+          </form>
+        </div>
       </li>
     <% end %>
   </ul>

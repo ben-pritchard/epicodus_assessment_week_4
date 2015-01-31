@@ -7,7 +7,7 @@
 <% if @band.venues().any? %>
   <ul>
     <% @band.venues().each() do |venue_id| %>
-      <%= Venue.find(venue_id).name() %>
+      <li><%= Venue.find(venue_id).name() %></li>
     <% end %>
   </ul>
 <% else %>
